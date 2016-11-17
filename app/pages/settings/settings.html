@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Settings
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+
+        <ion-item>
+            <ion-label stacked>Server's IP address</ion-label>
+            <ion-input type="text"  [(ngModel)]="ipAddress"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Server's Port</ion-label>
+            <ion-input type="text" [(ngModel)]="port"></ion-input>
+        </ion-item>
+
+    </ion-list>
+    <button (click)="save()">Elo</button>
+</ion-content>

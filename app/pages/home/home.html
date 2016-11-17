@@ -1,0 +1,53 @@
+<ion-navbar *navbar>
+    <ion-title>
+        Bit Bet GO
+    </ion-title>
+    <ion-buttons end>
+        <button (click)="doRefresh($event)">
+            <ion-icon name="refresh"></ion-icon>
+        </button>
+        <button (click)="goToSettings()">
+            <ion-icon name="settings"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-navbar>
+
+<ion-content class="home">
+    <ion-refresher (refresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card *ngFor="let i of items">
+        <ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <img src="https://{{address}}:8443/api/getLogo/{{i.teamImage1}}" alt="logo1"/>
+                </ion-col>
+                <ion-col center>
+                    <div class="vs">
+                        VS
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <img src="https://{{address}}:8443/api/getLogo/{{i.teamImage2}}" alt="logo2"/>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="buttonsRow">
+                <ion-col>
+                    <button (click)="doAlert(1, i)">BET</button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="doAlert(2, i)">DRAW</button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="doAlert(3, i)">BET</button>
+                </ion-col>
+            </ion-row>
+            <ion-row class="bankRow">
+                <ion-col>
+                    BANK: 0.0000000 BTC
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
